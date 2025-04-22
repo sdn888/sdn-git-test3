@@ -5,4 +5,13 @@ def calculate_annuity_payment(P, annual_rate, n):
     M = P * (r * (1 + r) ** n) / ((1 + r) ** n - 1)
     return M
 
-print(calculate_annuity_payment(1000000, 12, 48))
+if __name__ == "__main__":
+    try:
+        principal = float(input("Введите сумму кредита: "))
+        annual_interest_rate = float(input("Введите годовую процентную ставку (в %): "))
+        months = int(input("Введите количество месяцев: "))
+
+        monthly_payment = calculate_annuity_payment(principal, annual_interest_rate, months)
+        print(f"Ежемесячный платеж составит: {monthly_payment:.2f} руб.")
+    except ValueError:
+        print("Пожалуйста, введите корректные числовые значения.")
